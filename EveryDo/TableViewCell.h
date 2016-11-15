@@ -11,6 +11,8 @@
 @interface TableViewCell : UITableViewCell
 
 @property(nonatomic, retain)NSObject *toDo;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleDescription;
 
 @end

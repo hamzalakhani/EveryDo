@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "ToDo.h"
+#import "TableViewCell.h"
 
 @interface MasterViewController ()
 
@@ -25,14 +26,14 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    ToDo *toDoList1 = [[ToDo alloc]initwithToDo:@"Groceries" andWithDescription:@"grab groceries for the week" andWithPriorityNum:2 andwithBool:YES];
+    ToDo *toDoList1 = [[ToDo alloc]initWithToDo:@"Groceries" andWithDescription:@"grab groceries for the week" andWithPriorityNum:2 andWithBool:YES];
     
-    ToDo *toDoList2 = [[ToDo alloc]initwithToDo:@"House expenses" andWithDescription:@"list of monthly house expense" andWithPriorityNum:1 andwithBool:YES];
-    ToDo *toDoList3 = [[ToDo alloc]initwithToDo:@"Bills" andWithDescription:@"Bills for the month" andWithPriorityNum:3 andwithBool:YES];
-    ToDo *toDoList4 = [[ToDo alloc]initwithToDo:@"Games" andWithDescription:@"games to purchase for the month" andWithPriorityNum:5 andwithBool:YES];
-    ToDo *toDoList5 = [[ToDo alloc]initwithToDo:@"calls" andWithDescription:@"list of people to call this month" andWithPriorityNum:4 andwithBool:YES];
+    ToDo *toDoList2 = [[ToDo alloc]initWithToDo:@"House expenses" andWithDescription:@"list of monthly house expense" andWithPriorityNum:1 andWithBool:YES];
+    ToDo *toDoList3 = [[ToDo alloc]initWithToDo:@"Bills" andWithDescription:@"Bills for the month" andWithPriorityNum:3 andWithBool:YES];
+    ToDo *toDoList4 = [[ToDo alloc]initWithToDo:@"Games" andWithDescription:@"games to purchase for the month" andWithPriorityNum:5 andWithBool:YES];
+    ToDo *toDoList5 = [[ToDo alloc]initWithToDo:@"calls" andWithDescription:@"list of people to call this month" andWithPriorityNum:4 andWithBool:YES];
     
-    self.objects = [NSMutableArray arrayWithObjects:@"toDoList", @"toDoList1", @"toDoList2", @"toDoList3", @"toDoList4", @"toDoList5",nil];
+    self.objects = [NSMutableArray arrayWithObjects:toDoList1, toDoList2, toDoList3, toDoList4,toDoList5,nil];
     
 }
 
@@ -50,7 +51,7 @@
 - (void)insertNewObject:(id)sender {
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
-    }
+       }
     [self.objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -72,20 +73,26 @@
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.objects.count;
+    return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.objects.count;
+
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ToDo *testToDo = self.objects[indexPath.row];
+    cell.titleLabel.text = testToDo.title;
+    cell.titleDescription.text = testToDo.todoDescription;
+//    cell.titleLabel.text = self.objects[indexPath.row];//to access an object in an array you use this method
+//    cell.titleDescription.text = @"greetings";
+
+//    NSDate *object = self.objects[indexPath.row];
+//    cell.textLabel.text = [object description];
     return cell;
 }
 

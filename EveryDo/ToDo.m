@@ -10,13 +10,13 @@
 
 @implementation ToDo
 
-- (instancetype)initWithToDo:(NSString*)title andWithDescription:(NSString*)todoDescription andWithPriorityNum:(NSInteger)priorityNumber andwithBool:(BOOL)isCompleted {
+- (instancetype)initWithToDo:(NSString*)title andWithDescription:(NSString*)todoDescription andWithPriorityNum:(NSInteger)priorityNumber andWithBool:(BOOL)isCompleted {
     self = [super init];
     if (self) {
-        _title = @"Grocery";
-        _todoDescription = @"List of grocery Items";
-        _priorityNumber = 4;
-        _isCompleted = YES;
+        _title = title;
+        _todoDescription = todoDescription;
+        _priorityNumber = priorityNumber;
+        _isCompleted = isCompleted;
         
         
     }

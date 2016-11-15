@@ -14,6 +14,6 @@
 @property NSInteger priorityNumber;
 @property BOOL isCompleted;
 
-- (instancetype)initwithToDo:(NSString*)title andWithDescription:(NSString*)todoDescription andWithPriorityNum:(NSInteger)priorityNumber andwithBool:(BOOL)isCompleted;
+- (instancetype)initWithToDo:(NSString*)title andWithDescription:(NSString*)todoDescription andWithPriorityNum:(NSInteger)priorityNumber andWithBool:(BOOL)isCompleted;
 
 @end
