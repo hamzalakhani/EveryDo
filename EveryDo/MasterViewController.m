@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ToDo.h"
 
 @interface MasterViewController ()
 
@@ -20,9 +21,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    ToDo *toDoList1 = [[ToDo alloc]initwithToDo:@"Groceries" andWithDescription:@"grab groceries for the week" andWithPriorityNum:2 andwithBool:YES];
+    
+    ToDo *toDoList2 = [[ToDo alloc]initwithToDo:@"House expenses" andWithDescription:@"list of monthly house expense" andWithPriorityNum:1 andwithBool:YES];
+    ToDo *toDoList3 = [[ToDo alloc]initwithToDo:@"Bills" andWithDescription:@"Bills for the month" andWithPriorityNum:3 andwithBool:YES];
+    ToDo *toDoList4 = [[ToDo alloc]initwithToDo:@"Games" andWithDescription:@"games to purchase for the month" andWithPriorityNum:5 andwithBool:YES];
+    ToDo *toDoList5 = [[ToDo alloc]initwithToDo:@"calls" andWithDescription:@"list of people to call this month" andWithPriorityNum:4 andwithBool:YES];
+    
+    self.objects = [NSMutableArray arrayWithObjects:@"toDoList", @"toDoList1", @"toDoList2", @"toDoList3", @"toDoList4", @"toDoList5",nil];
+    
 }
 
 
@@ -61,7 +72,7 @@
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.objects.count;
 }
 
 
@@ -72,7 +83,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
+    
     NSDate *object = self.objects[indexPath.row];
     cell.textLabel.text = [object description];
     return cell;
