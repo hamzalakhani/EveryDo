@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+// make all properties nonatomic
 @interface ToDo : NSObject
 @property NSString* title;
 @property NSString* todoDescription;
 @property NSInteger priorityNumber;
 @property BOOL isCompleted;
+
+- (instancetype)initWithTitle:(NSString *)title description:(NSString *)description priority:(NSUInteger)priority;
 
 - (instancetype)initWithToDo:(NSString*)title andWithDescription:(NSString*)todoDescription andWithPriorityNum:(NSInteger)priorityNumber andWithBool:(BOOL)isCompleted;
 

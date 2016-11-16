@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ToDo;
+
+
 
 @interface TableViewCell : UITableViewCell
 
-@property(nonatomic, retain)NSObject *toDo;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property(nonatomic)ToDo *toDo;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleDescription;
 
 @end

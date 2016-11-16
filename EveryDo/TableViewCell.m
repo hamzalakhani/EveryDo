@@ -8,21 +8,19 @@
 
 #import "TableViewCell.h"
 #import "ToDo.h"
+
+@interface TableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleDescription;
+@end
 @implementation TableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+
+- (void)setToDo:(ToDo *)toDo {
+  self.titleLabel.text = toDo.title;
+  self.titleDescription.text = toDo.todoDescription;
+  _toDo = toDo;
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-
-
 
 
 @end
