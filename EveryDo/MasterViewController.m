@@ -10,8 +10,8 @@
 #import "DetailViewController.h"
 #import "ToDo.h"
 #import "TableViewCell.h"
-
-@interface MasterViewController ()
+#import "AddItemViewController.h"
+@interface MasterViewController ()<AddItemViewContollerDelegate>
 
 @property NSMutableArray *objects;
 @end
@@ -23,8 +23,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     
     ToDo *toDoList1 = [[ToDo alloc]initWithToDo:@"Groceries" andWithDescription:@"grab groceries for the week" andWithPriorityNum:2 andWithBool:YES];
     
@@ -63,12 +63,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        ToDo *object = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
         [controller setDetailItem:object];
     }
+    if ([[segue identifier] isEqualToString:@"addItem"]) {
+        
+        AddItemViewController *controller1 = (AddItemViewController *)[segue destinationViewController];
+        controller1.delegate= self;
+    }
 }
-
 
 #pragma mark - Table View
 
@@ -83,11 +87,12 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     ToDo *testToDo = self.objects[indexPath.row];
     cell.titleLabel.text = testToDo.title;
-    cell.titleDescription.text = testToDo.todoDescription;
+//    cell.titleDescription.text = testToDo.todoDescription;
 //    cell.titleLabel.text = self.objects[indexPath.row];//to access an object in an array you use this method
 //    cell.titleDescription.text = @"greetings";
 
@@ -111,6 +116,11 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
+- (void)didSaveNewToDo:(ToDo *)todoItem {
+    [self.objects addObject:todoItem];
+    [self.tableView reloadData];
+}
+
 
 
 @end

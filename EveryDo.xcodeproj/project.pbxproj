@@ -16,6 +16,7 @@
 		CA42A7DC1DDB6B2200BF141E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA42A7DA1DDB6B2200BF141E /* LaunchScreen.storyboard */; };
 		CA42A7E51DDB6D3200BF141E /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A7E41DDB6D3200BF141E /* ToDo.m */; };
 		CA42A7E81DDB800300BF141E /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A7E71DDB800300BF141E /* TableViewCell.m */; };
+		CA42A7EE1DDBD37D00BF141E /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA42A7ED1DDBD37D00BF141E /* AddItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		CA42A7E41DDB6D3200BF141E /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
 		CA42A7E61DDB800300BF141E /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		CA42A7E71DDB800300BF141E /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		CA42A7EC1DDBD37D00BF141E /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		CA42A7ED1DDBD37D00BF141E /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				CA42A7D31DDB6B2200BF141E /* DetailViewController.m */,
 				CA42A7E61DDB800300BF141E /* TableViewCell.h */,
 				CA42A7E71DDB800300BF141E /* TableViewCell.m */,
+				CA42A7EC1DDBD37D00BF141E /* AddItemViewController.h */,
+				CA42A7ED1DDBD37D00BF141E /* AddItemViewController.m */,
 				CA42A7E31DDB6D3200BF141E /* ToDo.h */,
 				CA42A7E41DDB6D3200BF141E /* ToDo.m */,
 				CA42A7D51DDB6B2200BF141E /* Main.storyboard */,
@@ -168,6 +173,7 @@
 			files = (
 				CA42A7E51DDB6D3200BF141E /* ToDo.m in Sources */,
 				CA42A7E81DDB800300BF141E /* TableViewCell.m in Sources */,
+				CA42A7EE1DDBD37D00BF141E /* AddItemViewController.m in Sources */,
 				CA42A7CE1DDB6B2200BF141E /* AppDelegate.m in Sources */,
 				CA42A7D11DDB6B2200BF141E /* MasterViewController.m in Sources */,
 				CA42A7CB1DDB6B2200BF141E /* main.m in Sources */,
