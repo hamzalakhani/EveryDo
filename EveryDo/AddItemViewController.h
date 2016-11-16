@@ -14,9 +14,11 @@
 
 @end
 @interface AddItemViewController : UIViewController
+
+// this outlet is not used
 @property (weak, nonatomic) IBOutlet UIButton *save;
 
-@property(nonatomic, strong) id <AddItemViewContollerDelegate> delegate;
+@property(nonatomic, weak) id <AddItemViewContollerDelegate> delegate;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *inputText;

@@ -16,7 +16,7 @@
         _title = title;
         _todoDescription = todoDescription;
         _priorityNumber = priorityNumber;
-        _isCompleted = isCompleted;
+        _isCompleted = NO;
         
         
     }
